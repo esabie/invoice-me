@@ -1,6 +1,6 @@
 # Invoice Me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create an Invoice. No Ads, No log in.
 
 ## Available Scripts
 
