@@ -15,6 +15,18 @@ body {
   margin: 0.5rem 0.2rem;
 }
 
+label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+input, textarea {
+  background-color: #f1f1f1;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
 button {
   user-select: none;
 }

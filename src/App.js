@@ -6,6 +6,7 @@ import Header from "./components/Header"
 import MainDetails from "./components/MainDetails"
 import ClientDetails from "./components/ClientDetails"
 import Dates from "./components/Dates";
+import TableForm from "./components/TableForm"
 
 
 
@@ -25,6 +26,13 @@ function App() {
   const [invoiceDate, setInvoiceDate] = useState("")
   const [dueDate, setDueDate] = useState("")
   const [notes, setNotes] = useState("")
+  const [description, setDescription] = useState("")
+  const [quantity, setQuantity] =useState("")
+  const [price, setPrice] =useState("")
+  const [amount, setAmount] =useState("")
+
+
+
 
 
 
@@ -46,7 +54,7 @@ function App() {
 
             <ClientDetails clientName={clientName} cemail={clientEmail} />
 
-            <Table />
+            <Table description={description}/>
 
             <Notes notes={notes} />
 
@@ -57,6 +65,8 @@ function App() {
         </div>  : (
           <>
           <div className="flex flex-col justify-center">
+            <article className="md:grid grid-cols-2 gap-10" >
+            <div className="flex flex-col" >
             <label htmlFor="name" >Company Name</label>
             <input 
               type="text" 
@@ -67,7 +77,9 @@ function App() {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+            </div>
 
+          <div className="flex flex-col">
           <label htmlFor="address" >Address</label>
             <input 
               type="text" 
@@ -77,8 +89,13 @@ function App() {
               autoComplete="off"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-            /> 
+            />
+          </div>
+              </article> 
 
+
+          <article className="md:grid grid-cols-2 gap-10 ">
+          <div className="flex flex-col">
           <label htmlFor="email" >Email Address</label>
             <input 
               type="email" 
@@ -89,8 +106,13 @@ function App() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+          </div>
 
+          <div className="flex flex-col">
           <label htmlFor="phone" >Phone</label>
+
+
+          
             <input 
               type="phone" 
               name="phone" 
@@ -100,6 +122,11 @@ function App() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
+          </div>
+          </article>
+          
+
+          
 
           <label htmlFor="clientName" >Client's Name</label>
             <input 
@@ -123,6 +150,8 @@ function App() {
               onChange={(e) => setClientEmail(e.target.value)}
             />
 
+          <article className="md:grid grid-cols-3 gap-10 md:mt-30" >
+          <div className="flex flex-col">
           <label htmlFor="invoiceNumber" >Invoice Number</label>
             <input 
               type="text" 
@@ -133,7 +162,9 @@ function App() {
               value={invoiceNumber}
               onChange={(e) => setInvoiceNumber(e.target.value)}
             />
+          </div>
 
+          <div className="flex flex-col">
           <label htmlFor="invoiceDate" >Invoice Date</label>
             <input 
               type="date" 
@@ -144,7 +175,9 @@ function App() {
               value={invoiceDate}
               onChange={(e) => setInvoiceDate(e.target.value)}
             />
+          </div>
 
+          <div className="flex flex-col">
           <label htmlFor="dueDate" >Due Date</label>
             <input 
               type="date" 
@@ -155,9 +188,11 @@ function App() {
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
             />
+          </div>
+          </article>
             
 
-          <label htmlFor="website" >Website</label>
+          {/* <label htmlFor="website" >Website</label>
             <input 
               type="url" 
               name="website" 
@@ -166,8 +201,10 @@ function App() {
               autoComplete="off"
               value={website}
               onChange={(e) => setWebsite(e.target.value)}
-            />
+            /> */}
 
+          <article className="md:grid grid-cols-2 gap-10">
+          <div className="flex flex-col">
           <label htmlFor="bank" >Enter your Bank name</label>
             <input 
               type="text" 
@@ -178,7 +215,9 @@ function App() {
               value={bankName}
               onChange={(e) => setBankName(e.target.value)}
             />
+          </div>
 
+            <div className="flex flex-col" >
             <label htmlFor="bankAccount" >Enter your Account number</label>
               <input 
                 type="number" 
@@ -189,6 +228,17 @@ function App() {
                 value={bankAccount}
                 onChange={(e) => setBankAccount(e.target.value)}
               />
+            </div>
+          </article>
+
+          {/* This is where the table goes */}
+          <article>
+            <TableForm
+            description={description}
+            setDescription={setDescription}
+            
+            />
+          </article>
 
           <label htmlFor="notes" >Additional Area</label>
             <textarea 
