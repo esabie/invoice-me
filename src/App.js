@@ -236,6 +236,13 @@ function App() {
             <TableForm
             description={description}
             setDescription={setDescription}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            price={price}
+            setPrice={setPrice}
+            amount={amount}
+            setAmount={setAmount}
+
             
             />
           </article>
